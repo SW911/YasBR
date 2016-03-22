@@ -1,8 +1,5 @@
 # YasBR - Yet another simple BitCoin Rotator
 
-## Dependency
-1. jQuery
-
 ## Usage
 This software will give you a framework, that will help claim BitCoins from all configured faucets.
 
@@ -19,3 +16,6 @@ var obj = {
 
 All the configured faucets will be displayed as a list of buttons.
 After you click on one of the buttons the faucet will be displayed in an iframe.
+
+## Dependency
+1. jQuery
