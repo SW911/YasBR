@@ -10,8 +10,10 @@ var obj = {
 	url : "http://", // this is the URL where the BitCoin Faucet is located
 	name : "",       // this is the name of button.
 	timer : "",      // the time between Claims.
-	iframe : "true"  // some of the faucets dont allow to be displayed in an iFrame, this is configured here
+	iframe : "true"  // some faucets dont allow to be displayed in an iFrame, this is configured here
 };
+// timer is in minutes
+// iframe is "true" or "false"
 ```
 
 All the configured faucets will be displayed as a list of buttons.
