@@ -1,5 +1,4 @@
-# YasBR
-Yet another simple BitCoin Rotator
+# YasBR - Yet another simple BitCoin Rotator
 
 ## Dependency
 1. jQuery
