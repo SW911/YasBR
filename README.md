@@ -4,6 +4,7 @@ Yet another simple BitCoin Rotator
 ## Dependency
 1. jQuery
 
+## Usage
 This software will give you a framework, that will help claim BitCoins from all configured faucets.
 
 The faucets are configured in the _faucets.js_.
