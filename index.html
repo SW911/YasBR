@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>YasBR &mdash; Yet another simple BitCoin Rotator</title>
+  </head>
+<script src="faucets.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script language="javascript" type="text/javascript">
+$( document ).ready(function() {
+
+faucets.sort(function(a, b) {
+   var aID = parseInt(a.timer);
+   var bID = parseInt(b.timer);
+   return (aID == bID) ? 0 : (aID > bID) ? 1 : -1;
+});
+
+	$( "#wallet_id" ).html( walletId );
+
+	var htmlString = "";
+
+	htmlString += "<button class=\"loadiframe\" id=\"clear\" data-src=\"\" data-iframe=\"true\">Clear iFrame</button><br><br>";
+
+
+
+	$.each(faucets, function( index, value ) {
+		htmlString += "<button class=\"loadiframe\" id=\"b" + index + "\" data-src=\"" + value.url + "\" data-timer=\"" + value.timer + "\" data-width=\"1500\" data-height=\"1200\" data-name=\"" + value.name + "\" data-iframe=\"" + value.iframe + "\">" + value.name + "</button>";
+
+	});
+
+	$( "#links" ).html( htmlString );
+
+
+	$('.loadiframe').on('click', function(){
+
+
+
+		var iframe = $(this).data('iframe');
+		var src = $(this).data('src');
+		var width = $(this).data('width');
+		var height = $(this).data('height');
+
+		if (iframe == true) {
+
+			$('#frame').css({
+				width: width,
+			        height: height
+			}).attr('src', src);
+		} else {
+			window.open(src, '_blank');
+		}
+
+
+	});
+
+	$(".loadiframe").click( function(){
+
+		var id = this.id;
+
+		if (id == 'clear') {
+			$("#current_faucet").html('');
+			return;
+		}
+		var counter = $(this).data('timer');
+		counter = counter * 60;
+		var buttonName = $(this).data('name');
+		$("#current_faucet").html(buttonName);
+
+
+		setInterval(function() {
+			counter--;
+			if (counter >= 0) {
+			span = document.getElementById(id);
+			span.innerHTML = counter;
+		}
+		if (counter === 0) {
+			span = document.getElementById(id);
+			span.innerHTML = buttonName;
+		}
+	}, 1000);
+});
+
+
+});
+</script>
+<h2>YasBR &mdash; Yet another simple BitCoin Rotator</h2>
+<span id="links"></span>
+<br><br>
+Current Faucet: <span id="current_faucet"></span>
+<br>
+WalletId: <span id="wallet_id"></span>
+<br>
+<iframe id='frame' frameborder="0" scrolling="yes" width="500" height="400" border=1>
+
+</html>
