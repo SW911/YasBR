@@ -26,4 +26,4 @@ var walletId = " xxx ";
 The configured WalletId will be displayed and it should help you with some faucets where you have to enter your walletId.
 
 ## Dependency
-1. jQuery
+1. jQuery – The library is hosted by Google
